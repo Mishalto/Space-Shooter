@@ -14,7 +14,7 @@ Spaceship::Spaceship()
 
 void Spaceship::loadTextures()
 {
-    if (!spaceshipTexture.loadFromFile("assets/spaceship.png"))
+    if (!spaceshipTexture.loadFromFile("../assets/spaceship.png"))
     {
         std::cerr << "I can't load a spaceship\n";
     }

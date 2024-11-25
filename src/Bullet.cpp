@@ -12,7 +12,7 @@ Bullet::Bullet()
 
 void Bullet::loadTextures()
 {
-    if(!bulletTexture.loadFromFile("assets/bullet.png"))
+    if(!bulletTexture.loadFromFile("../assets/bullet.png"))
     {
         std::cerr << "I can't load a bullet\n";
     }
