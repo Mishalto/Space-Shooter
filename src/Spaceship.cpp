@@ -7,13 +7,12 @@ Spaceship::Spaceship()
 {
     if(!textureLoaded)
     {
-        loadTexture();
+        loadTextures();
     }
     spaceship.setPosition(sf::Vector2f(Constants::weight / 2 - Constants::Spaceship::xSize, Constants::height - Constants::Spaceship::ySize));
-    bullet.setPosition(sf::Vector2f(100, 100));
 }
 
-void Spaceship::loadTexture()
+void Spaceship::loadTextures()
 {
     if (!spaceshipTexture.loadFromFile("assets/spaceship.png"))
     {
@@ -21,15 +20,10 @@ void Spaceship::loadTexture()
     }
     spaceship.setTexture(spaceshipTexture);
 
-    if(!bulletTexture.loadFromFile("assets/bullet.png"))
-    {
-        std::cerr << "I can't load a bullet\n";
-    }
-    bullet.setTexture(bulletTexture);
     textureLoaded = true;
 }
 
-void Spaceship::move()
+void Spaceship::management()
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
@@ -51,11 +45,10 @@ void Spaceship::move()
 
 void Spaceship::update()
 {
-    move();
+    management();
 }
 
 void Spaceship::draw(sf::RenderWindow& window)
 {
     window.draw(spaceship);
-    window.draw(bullet);
 }
