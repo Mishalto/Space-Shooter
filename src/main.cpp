@@ -3,10 +3,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "../include/Spaceship.hpp"
+#include "../include/constants.h"
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Space Shooter", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(Constants::weight, Constants::height), "Space Shooter", sf::Style::Fullscreen);
     window.setFramerateLimit(60);
 
     Spaceship ship{};

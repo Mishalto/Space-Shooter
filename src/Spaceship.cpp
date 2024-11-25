@@ -1,11 +1,15 @@
 #include <iostream>
 
 #include "../include/Spaceship.hpp"
+#include "../include/constants.h"
 
 Spaceship::Spaceship()
 {
-    spaceship.setPosition(sf::Vector2f(1920/2, 1080 - spaceship.getLocalBounds().height));
-    std::cout << spaceship.getGlobalBounds().height;
+    if(!textureLoaded)
+    {
+        loadTexture();
+    }
+    spaceship.setPosition(sf::Vector2f(Constants::weight / 2 - Constants::Spaceship::xSize, Constants::height - Constants::Spaceship::ySize));
 }
 
 void Spaceship::loadTexture()
@@ -45,9 +49,5 @@ void Spaceship::update()
 
 void Spaceship::draw(sf::RenderWindow& window)
 {
-    if(!textureLoaded)
-    {
-        loadTexture();
-    }
     window.draw(spaceship);
 }
