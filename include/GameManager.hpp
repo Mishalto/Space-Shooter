@@ -1,5 +1,8 @@
 #pragma once
 
+#include <memory>
+#include <vector>
+
 #include "../include/Spaceship.hpp"
 #include "../include/Bullet.hpp"
 

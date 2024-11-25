@@ -1,12 +1,14 @@
 #pragma once
 
+#include <memory>
+
 #include <SFML/Graphics.hpp>
 
 class Bullet
 {
 private:
     sf::Texture bulletTexture;
-    sf::Sprite bullet;
+    std::unique_ptr<sf::Sprite> bullet;
 
     const float bulletSpeed = 5.f;
 

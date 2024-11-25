@@ -14,7 +14,7 @@ int main()
     window.setFramerateLimit(60);
 
     GameManager manager{};
-
+    
     while (window.isOpen())
     {
         sf::Event event;
