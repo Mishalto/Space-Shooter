@@ -2,8 +2,11 @@
 
 namespace Constants
 {
-    const int weight = 1920;
-    const int height = 1080;
+    namespace Resolution
+    {
+        const int weight = 1920;
+        const int height = 1080;
+    }
 
     namespace Spaceship
     {

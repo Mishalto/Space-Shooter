@@ -7,7 +7,17 @@ GameManager::GameManager()
 void GameManager::update()
 {
     checkInput();
-    bullet.moveBullet();
+    if(!bullets.empty())
+    {
+        for(std::size_t index = 0; index < bullets.size(); ++index)
+        {
+            bullets[index].moveBullet();
+            if(bullets[index].isOffScreen())
+            {
+                bullets.erase(bullets.begin() + index);
+            }
+        }
+    }
 }
 
 void GameManager::checkInput()
@@ -30,12 +40,20 @@ void GameManager::checkInput()
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
-        bullet.setPos(ship.getPosX(), ship.getPosY());
+        bullets.emplace_back(Bullet{});
+        bullets.back().loadTextures();
+        bullets.back().setPos(ship.getPosX(), ship.getPosY());
     }
 }
 
 void GameManager::draw(sf::RenderWindow& window)
 {
     ship.draw(window);
-    bullet.draw(window);
+    if(!bullets.empty())
+    {
+        for(const auto& bullet : bullets)
+        {
+            bullet.draw(window);
+        }
+    }
 }

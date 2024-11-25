@@ -1,19 +1,14 @@
 #pragma once
 
-#include <memory>
-
 #include <SFML/Graphics.hpp>
 
 class Bullet
 {
 private:
-    sf::Texture bulletTexture;
-    std::unique_ptr<sf::Sprite> bullet;
+    static sf::Texture bulletTexture;
+    sf::Sprite bullet;
 
-    const float bulletSpeed = 5.f;
-
-    bool textureLoaded = false;
-
+    float bulletSpeed = 7.f;
 public:
     Bullet();
 
@@ -23,4 +18,5 @@ public:
     void setPos(float x, float y);
 
     float getSpeed() const;
+    bool isOffScreen();
 };

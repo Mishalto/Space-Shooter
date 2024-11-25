@@ -10,7 +10,7 @@ class GameManager
 {
 private:
     Spaceship ship;
-    Bullet bullet;
+    std::vector<Bullet> bullets;
 
     void checkInput();
 public:

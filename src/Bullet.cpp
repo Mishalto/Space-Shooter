@@ -2,12 +2,8 @@
 
 #include "../include/Bullet.hpp"
 
-Bullet::Bullet() : bullet{std::make_unique<sf::Sprite>()}
+Bullet::Bullet()
 {
-    if(!textureLoaded)
-    {
-        loadTextures();
-    }
 }
 
 void Bullet::loadTextures()
@@ -16,27 +12,30 @@ void Bullet::loadTextures()
     {
         std::cerr << "I can't load a bullet\n";
     }
-    bullet->setTexture(bulletTexture);
-
-    textureLoaded = true;
+    bullet.setTexture(bulletTexture);
 }
 
 void Bullet::draw(sf::RenderWindow& window) const
 {
-    window.draw(*bullet);
+    window.draw(bullet);
 }
 
 void Bullet::moveBullet()
 {
-    bullet->move(0.f, -bulletSpeed);
+    bullet.move(0.f, -bulletSpeed);
 }
 
 void Bullet::setPos(float x, float y)
 {
-    bullet->setPosition(sf::Vector2f(x, y));
+    bullet.setPosition(sf::Vector2f(x, y));
 }
 
 float Bullet::getSpeed() const
 {
     return bulletSpeed;
+}
+
+bool Bullet::isOffScreen()
+{
+    return bullet.getPosition().y < 0;
 }

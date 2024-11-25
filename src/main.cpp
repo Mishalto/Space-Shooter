@@ -10,11 +10,11 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(Constants::weight, Constants::height), "Space Shooter", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(Constants::Resolution::weight, Constants::Resolution::height), "Space Shooter", sf::Style::Fullscreen);
     window.setFramerateLimit(60);
 
     GameManager manager{};
-    
+
     while (window.isOpen())
     {
         sf::Event event;
