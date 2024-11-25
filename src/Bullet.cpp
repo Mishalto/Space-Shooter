@@ -8,8 +8,6 @@ Bullet::Bullet()
     {
         loadTextures();
     }
-
-    bullet.setPosition(sf::Vector2f(10, 10));
 }
 
 void Bullet::loadTextures()
@@ -22,11 +20,23 @@ void Bullet::loadTextures()
 
     textureLoaded = true;
 }
-void Bullet::draw(sf::RenderWindow& window)
+
+void Bullet::draw(sf::RenderWindow& window) const
 {
     window.draw(bullet);
 }
-void Bullet::move()
+
+void Bullet::moveBullet()
 {
     bullet.move(0.f, -bulletSpeed);
+}
+
+void Bullet::setPos(float x, float y)
+{
+    bullet.setPosition(sf::Vector2f(x, y));
+}
+
+float Bullet::getSpeed() const
+{
+    return bulletSpeed;
 }

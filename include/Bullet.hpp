@@ -11,10 +11,14 @@ private:
     const float bulletSpeed = 5.f;
 
     bool textureLoaded = false;
+
 public:
     Bullet();
 
     void loadTextures();
-    void draw(sf::RenderWindow& window);
-    void move();
+    void draw(sf::RenderWindow& window) const;
+    void moveBullet();
+    void setPos(float x, float y);
+
+    float getSpeed() const;
 };

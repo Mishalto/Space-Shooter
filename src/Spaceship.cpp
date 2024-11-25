@@ -23,32 +23,27 @@ void Spaceship::loadTextures()
     textureLoaded = true;
 }
 
-void Spaceship::management()
+void Spaceship::moveShip(float x, float y)
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-    {
-        spaceship.move(shipSpeed, 0.f);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-    {
-        spaceship.move(-shipSpeed, 0.f);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-    {
-        spaceship.move(0.f, shipSpeed);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
-        spaceship.move(0.f, -shipSpeed);
-    }
-}
-
-void Spaceship::update()
-{
-    management();
+    spaceship.move(x, y);
 }
 
 void Spaceship::draw(sf::RenderWindow& window)
 {
     window.draw(spaceship);
+}
+
+float Spaceship::getSpeed() const
+{
+    return shipSpeed;
+}
+
+float Spaceship::getPosX() const
+{
+    return spaceship.getPosition().x;
+}
+
+float Spaceship::getPosY() const
+{
+    return spaceship.getPosition().y;
 }

@@ -10,7 +10,7 @@ set(SFML_DIR "D:/SFML-2.6.1/lib/cmake/SFML")
 
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 
-add_executable(Space_Shooter src/main.cpp src/Spaceship.cpp src/Bullet.cpp)
+add_executable(Space_Shooter src/main.cpp src/Spaceship.cpp src/Bullet.cpp src/GameManager.cpp)
 
 target_compile_options(Space_Shooter PRIVATE -Wall -Wextra -Werror)
 

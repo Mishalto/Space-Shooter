@@ -2,8 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "../include/Spaceship.hpp"
 #include "../include/constants.h"
+#include "../include/Spaceship.hpp"
+#include "../include/Bullet.hpp"
+#include "../include/GameManager.hpp"
 
 
 int main()
@@ -11,7 +13,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(Constants::weight, Constants::height), "Space Shooter", sf::Style::Fullscreen);
     window.setFramerateLimit(60);
 
-    Spaceship ship{};
+    GameManager manager{};
 
     while (window.isOpen())
     {
@@ -22,10 +24,10 @@ int main()
                 window.close();
         }
 
-    ship.update();
+        manager.update();
 
         window.clear();
-        ship.draw(window);
+        manager.draw(window);
         window.display();
     }
 
