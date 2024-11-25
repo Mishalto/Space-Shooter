@@ -1,10 +1,15 @@
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
+
+#include "../include/Spaceship.hpp"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Space Shooter", sf::Style::Fullscreen);
+    window.setFramerateLimit(60);
+
+    Spaceship ship{};
 
     while (window.isOpen())
     {
@@ -15,11 +20,12 @@ int main()
                 window.close();
         }
 
+    ship.update();
+
         window.clear();
-        window.draw(shape);
+        ship.draw(window);
         window.display();
     }
 
     return 0;
 }
-    
