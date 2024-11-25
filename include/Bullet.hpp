@@ -5,7 +5,7 @@
 class Bullet
 {
 private:
-    static sf::Texture bulletTexture;
+    sf::Texture bulletTexture;
     sf::Sprite bullet;
 
     float bulletSpeed = 7.f;
