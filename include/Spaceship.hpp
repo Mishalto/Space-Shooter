@@ -8,7 +8,11 @@ private:
     sf::Texture spaceshipTexture;
     sf::Sprite spaceship;
 
-    const float speed = 5.f;
+    sf::Texture bulletTexture;
+    sf::Sprite bullet;
+
+    const float shipSpeed = 5.f;
+    [[maybe_unused]]const float bulletSpeed = 5.f;
 
     bool textureLoaded = false;
 public:
