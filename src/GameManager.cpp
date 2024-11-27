@@ -3,6 +3,8 @@
 
 GameManager::GameManager()
 {
+    fireSound.openFromFile("../assets/fire.wav");
+    fireSound.setVolume(55.f);
 }
 
 void GameManager::update()
@@ -35,6 +37,7 @@ void GameManager::checkInput()
         if(Timer.getElapsedTime().asSeconds() > fireRateLimit)
         {
             fire();
+            fireSound.play();
         }
     }
 }

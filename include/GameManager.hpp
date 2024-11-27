@@ -3,6 +3,8 @@
 #include <memory>
 #include <vector>
 
+#include <SFML/Audio.hpp>
+
 #include "../include/Spaceship.hpp"
 #include "../include/Bullet.hpp"
 #include "../include/Enemy.hpp"
@@ -13,6 +15,8 @@ private:
     Spaceship ship;
     Enemy UFO;
     std::vector<Bullet> bullets;
+
+    sf::Music fireSound;
 
     void checkInput();
 public:
