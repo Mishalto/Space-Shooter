@@ -41,8 +41,12 @@ void GameManager::checkInput()
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
-        bullets.emplace_back(Bullet{});
-        bullets.back().setPos(ship.getPosX() + Constants::Offset::x, ship.getPosY() - -Constants::Offset::y);
+        if(fireRate.getElapsedTime().asSeconds() > fireRateLimit)
+        {
+            bullets.emplace_back(Bullet{});
+            bullets.back().setPos(ship.getPosX() + Constants::Offset::x, ship.getPosY() - -Constants::Offset::y);
+            fireRate.restart();
+        }
     }
 }
 
