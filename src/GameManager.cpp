@@ -1,4 +1,5 @@
 #include "../include/GameManager.hpp"
+#include "../include/constants.h"
 
 GameManager::GameManager()
 {
@@ -41,7 +42,7 @@ void GameManager::checkInput()
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
         bullets.emplace_back(Bullet{});
-        bullets.back().setPos(ship.getPosX(), ship.getPosY());
+        bullets.back().setPos(ship.getPosX() + Constants::Offset::x, ship.getPosY() - -Constants::Offset::y);
     }
 }
 

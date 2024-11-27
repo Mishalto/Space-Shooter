@@ -13,4 +13,10 @@ namespace Constants
         const float xSize = 45.f;
         const float ySize = 31.f;
     }
+
+    namespace Offset
+    {
+        const float x = 6;
+        const float y = -10;
+    }
 }
