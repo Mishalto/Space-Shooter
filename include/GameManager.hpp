@@ -19,6 +19,7 @@ public:
     void update();
     void draw(sf::RenderWindow& window);
 
-    sf::Clock fireRate;
-    float fireRateLimit = 0.5f;
+    sf::Clock Timer;
+    float fireRateLimit = 0.3f;
 };
+    
