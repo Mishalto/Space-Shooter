@@ -1,9 +1,7 @@
 #include <iostream>
 
 #include "../include/Bullet.hpp"
-#include "../include/LoadedTextures.h"
-
-TextureManager textures;
+#include "../include/LoadedTextures.hpp"
 
 Bullet::Bullet()
 {

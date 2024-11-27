@@ -9,7 +9,7 @@ Spaceship::Spaceship()
     {
         loadTextures();
     }
-    spaceship.setPosition(sf::Vector2f(Constants::Resolution::weight / 2 - Constants::Spaceship::xSize, Constants::Resolution::height - Constants::Spaceship::ySize));
+    spaceship.setPosition(sf::Vector2f(Constants::Resolution::weight / 2 - Constants::Spaceship::PxSize, Constants::Resolution::height - Constants::Spaceship::PySize));
 }
 
 void Spaceship::loadTextures()

@@ -61,6 +61,8 @@
         "xiosbase": "cpp",
         "xstring": "cpp",
         "stack": "cpp",
-        "xlocmes": "cpp"
+        "xlocmes": "cpp",
+        "xlocinfo": "cpp",
+        "xutility": "cpp"
     }
 }

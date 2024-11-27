@@ -10,13 +10,22 @@ namespace Constants
 
     namespace Spaceship
     {
-        const float xSize = 45.f;
-        const float ySize = 31.f;
+        const float PxSize = 45.f;
+        const float PySize = 31.f;
     }
 
     namespace Offset
     {
         const float x = 6;
         const float y = -10;
+    }
+
+    namespace Enemy
+    {
+        namespace UFO
+        {
+            const float UxSize = 641;
+            const float UySize = 546;
+        }
     }
 }

@@ -8,17 +8,8 @@ GameManager::GameManager()
 void GameManager::update()
 {
     checkInput();
-    if(!bullets.empty())
-    {
-        for(std::size_t index = 0; index < bullets.size(); ++index)
-        {
-            bullets[index].moveBullet();
-            if(bullets[index].isOffScreen())
-            {
-                bullets.erase(bullets.begin() + index);
-            }
-        }
-    }
+    moveBullets();
+    UFO.move();
 }
 
 void GameManager::checkInput()
@@ -43,9 +34,7 @@ void GameManager::checkInput()
     {
         if(Timer.getElapsedTime().asSeconds() > fireRateLimit)
         {
-            bullets.emplace_back(Bullet{});
-            bullets.back().setPos(ship.getPosX() + Constants::Offset::x, ship.getPosY() - -Constants::Offset::y);
-            Timer.restart();
+            fire();
         }
     }
 }
@@ -53,6 +42,7 @@ void GameManager::checkInput()
 void GameManager::draw(sf::RenderWindow& window)
 {
     ship.draw(window);
+    UFO.draw(window);
     if(!bullets.empty())
     {
         for(const auto& bullet : bullets)
@@ -61,3 +51,29 @@ void GameManager::draw(sf::RenderWindow& window)
         }
     }
 }
+
+void GameManager::fire()
+{
+    if (Timer.getElapsedTime().asSeconds() > fireRateLimit)
+    {
+        bullets.emplace_back(Bullet{});
+        bullets.back().setPos(ship.getPosX() + Constants::Offset::x, ship.getPosY() - (-Constants::Offset::y));
+        Timer.restart();
+    }
+}
+
+void GameManager::moveBullets()
+{
+    if (!bullets.empty())
+    {
+        for (std::size_t index = 0; index < bullets.size(); ++index)
+        {
+            bullets[index].moveBullet();
+            if (bullets[index].isOffScreen())
+            {
+                bullets.erase(bullets.begin() + index);
+            }
+        }
+    }
+}
+

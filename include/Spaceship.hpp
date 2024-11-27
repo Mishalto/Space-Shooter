@@ -8,7 +8,7 @@ private:
     sf::Texture spaceshipTexture;
     sf::Sprite spaceship;
 
-    float shipSpeed = 5.f;
+    float shipSpeed = 8.f;
 
     bool textureLoaded = false;
 public:

@@ -3,30 +3,35 @@
 #include <SFML/Graphics.hpp>
 
 #include "../include/constants.h"
-#include "../include/Spaceship.hpp"
-#include "../include/Bullet.hpp"
 #include "../include/GameManager.hpp"
+#include "../include/Enemy.hpp"
+#include "../include/LoadedTextures.hpp"
+
+void closeCheck(sf::RenderWindow &window)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        window.close();
+    }
+}
 
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(Constants::Resolution::weight, Constants::Resolution::height), "Space Shooter", sf::Style::Fullscreen);
+    sf::RenderWindow window(sf::VideoMode(Constants::Resolution::weight, Constants::Resolution::height), "Space Shooter", sf::Style::None);
     window.setFramerateLimit(60);
 
     GameManager manager;
-
+    sf::Sprite background;
+    background.setTexture(*(textures.getTexture(4)));
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+        closeCheck(window);
 
         manager.update();
 
         window.clear();
+        window.draw(background);
         manager.draw(window);
         window.display();
     }
