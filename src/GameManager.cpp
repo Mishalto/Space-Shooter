@@ -41,7 +41,6 @@ void GameManager::checkInput()
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
         bullets.emplace_back(Bullet{});
-        bullets.back().loadTextures();
         bullets.back().setPos(ship.getPosX(), ship.getPosY());
     }
 }

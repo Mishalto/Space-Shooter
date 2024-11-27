@@ -1,18 +1,13 @@
 #include <iostream>
 
 #include "../include/Bullet.hpp"
+#include "../include/LoadedTextures.h"
+
+TextureManager textures;
 
 Bullet::Bullet()
 {
-}
-
-void Bullet::loadTextures()
-{
-    if(!bulletTexture.loadFromFile("../assets/bullet.png"))
-    {
-        std::cerr << "I can't load a bullet\n";
-    }
-    bullet.setTexture(bulletTexture);
+    bullet.setTexture(*(textures.getTexture(2)));
 }
 
 void Bullet::draw(sf::RenderWindow& window) const
