@@ -43,3 +43,18 @@ void Enemy::move()
         speedUFO = 5.f;
     }
 }
+
+const sf::Sprite& Enemy::getTexture() const
+{
+    return UFO;
+}
+
+void Enemy::reduceHealth()
+{
+    health -= 1;
+}
+
+bool Enemy::isAlive()
+{
+    return health > 0;
+}

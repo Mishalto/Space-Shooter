@@ -1,16 +1,19 @@
 #include "../include/GameManager.hpp"
 #include "../include/constants.h"
 
+#include <iostream>
+
 GameManager::GameManager()
 {
     fireSound.openFromFile("../assets/fire.wav");
-    fireSound.setVolume(55.f);
+    fireSound.setVolume(40.f);
 }
 
 void GameManager::update()
 {
     checkInput();
     moveBullets();
+    checkCollision();
     UFO.move();
 }
 
@@ -45,7 +48,10 @@ void GameManager::checkInput()
 void GameManager::draw(sf::RenderWindow& window)
 {
     ship.draw(window);
-    UFO.draw(window);
+    if(UFO.isAlive())
+    {
+        UFO.draw(window);
+    }
     if(!bullets.empty())
     {
         for(const auto& bullet : bullets)
@@ -80,3 +86,14 @@ void GameManager::moveBullets()
     }
 }
 
+void GameManager::checkCollision()
+{
+    for(std::size_t i = 0; i < bullets.size(); ++i)
+    {
+        if(bullets[i].getSprite().getGlobalBounds().intersects(UFO.getTexture().getGlobalBounds()))
+        {
+            bullets.erase(bullets.begin() + i);
+            UFO.reduceHealth();
+        }
+    }
+}

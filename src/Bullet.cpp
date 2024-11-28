@@ -32,3 +32,18 @@ bool Bullet::isOffScreen()
 {
     return bullet.getPosition().y < 0;
 }
+
+float Bullet::getPosY() const
+{
+    return bullet.getPosition().y;
+}
+
+float Bullet::getPosX() const
+{
+    return bullet.getPosition().x;
+}
+
+const sf::Sprite& Bullet::getSprite() const
+{
+    return bullet;
+}

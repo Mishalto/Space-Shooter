@@ -13,8 +13,8 @@ class GameManager
 {
 private:
     Spaceship ship;
-    Enemy UFO;
     std::vector<Bullet> bullets;
+    Enemy UFO;
 
     sf::Music fireSound;
 
@@ -28,6 +28,7 @@ public:
     void fire();
     void moveBullets();
     void moveUFO();
+    void checkCollision();
 
     sf::Clock Timer;
     float fireRateLimit = 0.3f;

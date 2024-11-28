@@ -7,6 +7,8 @@ class Enemy
 private:
     sf::Sprite UFO;
     float speedUFO = 5.f;
+    int health = 5;
+
 public:
     Enemy();
 
@@ -15,4 +17,7 @@ public:
     float getPosY() const;
     float getSpeed() const;
     void move();
+    void reduceHealth();
+    bool isAlive();
+    const sf::Sprite& getTexture() const;
 };
