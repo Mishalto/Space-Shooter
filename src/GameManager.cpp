@@ -88,12 +88,15 @@ void GameManager::moveBullets()
 
 void GameManager::checkCollision()
 {
-    for(std::size_t i = 0; i < bullets.size(); ++i)
+    if (UFO.isAlive())
     {
-        if(bullets[i].getSprite().getGlobalBounds().intersects(UFO.getTexture().getGlobalBounds()))
+        for (std::size_t i = 0; i < bullets.size(); ++i)
         {
-            bullets.erase(bullets.begin() + i);
-            UFO.reduceHealth();
+            if (bullets[i].getSprite().getGlobalBounds().intersects(UFO.getTexture().getGlobalBounds()))
+            {
+                bullets.erase(bullets.begin() + i);
+                UFO.reduceHealth();
+            }
         }
     }
 }
